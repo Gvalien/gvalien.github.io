@@ -3,18 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gvalien</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Gvalien - Incursion Imminent</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS reset and base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
             font-family: 'Orbitron', sans-serif;
             background: #0d0c1b;
             overflow: hidden;
+            color: #fff;
         }
 
+        /* Full-screen layout container */
+        .full-screen-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Background animated dots */
         .background-dots {
             position: absolute;
             top: 0;
@@ -23,7 +40,6 @@
             height: 100%;
             background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
-            /* Faster animation for a more aggressive feel */
             animation: moveDots 10s linear infinite;
         }
 
@@ -35,6 +51,42 @@
                 background-position: 400px 400px;
             }
         }
+
+        /* Main title styling */
+        .title {
+            font-size: clamp(4rem, 15vw, 20rem);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            line-height: 1;
+            background: linear-gradient(45deg, #FF0000, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FF0000;
+        }
+
+        /* Subtitle styling and responsiveness */
+        .subtitle {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: #fb923c;
+            opacity: 0.9;
+        }
+        
+        /* Media queries for responsive font sizes */
+        @media (min-width: 768px) {
+            .subtitle {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
     </style>
     <!-- Script to disable right-click and text selection -->
     <script>
@@ -44,24 +96,15 @@
         document.addEventListener('selectstart', event => event.preventDefault());
     </script>
 </head>
-<body class="bg-[#0d0c1b] text-white flex items-center justify-center min-h-screen relative">
+<body class="full-screen-container">
 
     <!-- Futuristic Background Effect -->
     <div class="background-dots"></div>
 
     <!-- Main Content -->
-    <div class="relative z-10 text-center">
-        <h1 class="font-bold tracking-widest leading-none" 
-            style="font-size: clamp(4rem, 15vw, 20rem); 
-                   background: linear-gradient(45deg, #FF0000, #FFD700); 
-                   -webkit-background-clip: text; 
-                   -webkit-text-fill-color: transparent;
-                   text-shadow: 0 0 10px #FFD700, 0 0 20px #FF0000;">
-            Gvalien
-        </h1>
-        <p class="mt-4 text-xs md:text-sm lg:text-base tracking-widest uppercase font-light text-orange-400 opacity-90">
-            Incursion Imminent
-        </p>
+    <div class="text-center" style="position: relative; z-index: 10;">
+        <h1 class="title">Gvalien</h1>
+        <p class="subtitle">Incursion Imminent</p>
     </div>
     
 </body>
